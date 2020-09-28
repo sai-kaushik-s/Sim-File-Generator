@@ -6,8 +6,9 @@ from simplify import simplifyAnd, simplifyOr
 
 
 def helpInput():
-    print("AND Gate:\t&\nOR Gate:\t|\nNOT Gate:\t~\nXOR Gate:\t^\nXNOR Gate:\t~^\nNAND Gate:\t~&\nNOR Gate:\t~|\n")
-    expr = input("Enter the expression: ")
+    print("\033[0;36m\nAND Gate:\t&\nOR Gate:\t|\nNOT Gate:\t~\nXOR Gate:\t^\nXNOR Gate:\t~^\nNAND Gate:\t~&\nNOR "
+          "Gate:\t~|\n")
+    expr = input("\033[0;34mEnter the expression: ")
     expr = expr.replace(" ", "")
     fileName = expr + ".sim"
     expr = helpComplexGates(expr)
@@ -15,9 +16,9 @@ def helpInput():
     minExpr = minExpr.replace(" ", "")
     os.chdir("Circuits")
     wireCount = 0
-    print("The simplified expression: y = %s" % minExpr)
-    print("The .sim file is saved as '%s' in the directory 'Circuits/'" % fileName)
-    print('The satisfiable values are: ')
+    print("\033[0;31m\nThe simplified expression: y = %s" % minExpr)
+    print("\033[0;35m\nThe .sim file is saved as '%s' in the directory 'Circuits/'" % fileName)
+    print("\033[0;32m\nThe satisfiable values are: \033[0;33m")
     helpSolutions(minExpr)
     return minExpr, fileName, wireCount
 
@@ -151,15 +152,37 @@ def helpFindAB(expr, it, inc):
 
 def helpSolutions(expr):
     x = list(satisfiable(expr))
+    variables = sorted(helpVariables(expr))
     x = x[0]
     it = x.find("|")
     b1 = ""
+    i = 0
     while it != -1:
+        i += 1
+        print(str(i) + ")\t", end="")
         a1, b1 = helpFindAB(x, it, 1)
-        print(a1)
+        helpSolutionFormat(a1, variables)
         x = x.replace("|", "", 1)
         it = x.find("|")
-    print(b1)
+    i += 1
+    print(str(i) + ")\t", end="")
+    helpSolutionFormat(b1, variables)
+
+
+def helpSolutionFormat(expr, variables):
+    expr = expr.replace("&", " ")
+    expr = expr.replace("(", "")
+    expr = expr.replace(")", "")
+    for it in variables:
+        y = expr.find(it)
+        if y == -1:
+            print(it + " = X", end="; ")
+        else:
+            if expr[y - 1] == "~":
+                print(it + " = 0", end="; ")
+            else:
+                print(it + " = 1", end="; ")
+    print("", end="\n")
 
 
 def helpGate(f1m, wireCount, wireCount1):
@@ -167,6 +190,14 @@ def helpGate(f1m, wireCount, wireCount1):
     f1m = f1m.replace("(", "")
     f1m = f1m.replace(")", "")
     return f1m, wireCount
+
+
+def helpVariables(expr):
+    variables = set()
+    for it in expr:
+        if it.isalpha():
+            variables.add(it)
+    return variables
 
 
 def helpRename(fileName, expr):
