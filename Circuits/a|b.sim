@@ -1,0 +1,8 @@
+p a vdd n0 2 4
+p b n0 n1 2 4
+n a n1 gnd 2 4
+n b n1 gnd 2 4
+
+p n1 vdd y 2 4
+n n1 gnd y 2 4
+

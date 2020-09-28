@@ -1,0 +1,188 @@
+p d vdd nd 2 4
+n d nd gnd 2 4
+
+p e vdd ne 2 4
+n e ne gnd 2 4
+
+p a vdd na 2 4
+n a na gnd 2 4
+
+p b vdd nb 2 4
+n b nb gnd 2 4
+
+p a vdd n1 2 4
+p b vdd n1 2 4
+n a n1 n0 2 4
+n b n0 gnd 2 4
+
+p n1 vdd n2 2 4
+n n1 gnd n2 2 4
+
+p n2 vdd n4 2 4
+p c vdd n4 2 4
+n n2 n4 n3 2 4
+n c n3 gnd 2 4
+
+p n4 vdd n5 2 4
+n n4 gnd n5 2 4
+
+p n5 vdd n7 2 4
+p d vdd n7 2 4
+n n5 n7 n6 2 4
+n d n6 gnd 2 4
+
+p n7 vdd n8 2 4
+n n7 gnd n8 2 4
+
+p n8 vdd n10 2 4
+p e vdd n10 2 4
+n n8 n10 n9 2 4
+n e n9 gnd 2 4
+
+p n10 vdd n11 2 4
+n n10 gnd n11 2 4
+
+p n11 vdd n13 2 4
+p f vdd n13 2 4
+n n11 n13 n12 2 4
+n f n12 gnd 2 4
+
+p n13 vdd n14 2 4
+n n13 gnd n14 2 4
+
+p n5 vdd n16 2 4
+p f vdd n16 2 4
+n n5 n16 n15 2 4
+n f n15 gnd 2 4
+
+p n16 vdd n17 2 4
+n n16 gnd n17 2 4
+
+p n17 vdd n19 2 4
+p nd vdd n19 2 4
+n n17 n19 n18 2 4
+n nd n18 gnd 2 4
+
+p n19 vdd n20 2 4
+n n19 gnd n20 2 4
+
+p n20 vdd n22 2 4
+p ne vdd n22 2 4
+n n20 n22 n21 2 4
+n ne n21 gnd 2 4
+
+p n22 vdd n23 2 4
+n n22 gnd n23 2 4
+
+p c vdd n25 2 4
+p d vdd n25 2 4
+n c n25 n24 2 4
+n d n24 gnd 2 4
+
+p n25 vdd n26 2 4
+n n25 gnd n26 2 4
+
+p n26 vdd n28 2 4
+p e vdd n28 2 4
+n n26 n28 n27 2 4
+n e n27 gnd 2 4
+
+p n28 vdd n29 2 4
+n n28 gnd n29 2 4
+
+p n29 vdd n31 2 4
+p f vdd n31 2 4
+n n29 n31 n30 2 4
+n f n30 gnd 2 4
+
+p n31 vdd n32 2 4
+n n31 gnd n32 2 4
+
+p n32 vdd n34 2 4
+p na vdd n34 2 4
+n n32 n34 n33 2 4
+n na n33 gnd 2 4
+
+p n34 vdd n35 2 4
+n n34 gnd n35 2 4
+
+p n35 vdd n37 2 4
+p nb vdd n37 2 4
+n n35 n37 n36 2 4
+n nb n36 gnd 2 4
+
+p n37 vdd n38 2 4
+n n37 gnd n38 2 4
+
+p c vdd n40 2 4
+p f vdd n40 2 4
+n c n40 n39 2 4
+n f n39 gnd 2 4
+
+p n40 vdd n41 2 4
+n n40 gnd n41 2 4
+
+p n41 vdd n43 2 4
+p na vdd n43 2 4
+n n41 n43 n42 2 4
+n na n42 gnd 2 4
+
+p n43 vdd n44 2 4
+n n43 gnd n44 2 4
+
+p n44 vdd n46 2 4
+p nb vdd n46 2 4
+n n44 n46 n45 2 4
+n nb n45 gnd 2 4
+
+p n46 vdd n47 2 4
+n n46 gnd n47 2 4
+
+p n47 vdd n49 2 4
+p nd vdd n49 2 4
+n n47 n49 n48 2 4
+n nd n48 gnd 2 4
+
+p n49 vdd n50 2 4
+n n49 gnd n50 2 4
+
+p n50 vdd n52 2 4
+p ne vdd n52 2 4
+n n50 n52 n51 2 4
+n ne n51 gnd 2 4
+
+p n52 vdd n53 2 4
+n n52 gnd n53 2 4
+
+p g vdd n54 2 4
+p n14 n54 n55 2 4
+n g n55 gnd 2 4
+n n14 n55 gnd 2 4
+
+p n55 vdd n56 2 4
+n n55 gnd n56 2 4
+
+p n56 vdd n57 2 4
+p n23 n57 n58 2 4
+n n56 n58 gnd 2 4
+n n23 n58 gnd 2 4
+
+p n58 vdd n59 2 4
+n n58 gnd n59 2 4
+
+p n59 vdd n60 2 4
+p n38 n60 n61 2 4
+n n59 n61 gnd 2 4
+n n38 n61 gnd 2 4
+
+p n61 vdd n62 2 4
+n n61 gnd n62 2 4
+
+p n62 vdd n63 2 4
+p n53 n63 n64 2 4
+n n62 n64 gnd 2 4
+n n53 n64 gnd 2 4
+
+p n64 vdd y 2 4
+n n64 gnd y 2 4
+

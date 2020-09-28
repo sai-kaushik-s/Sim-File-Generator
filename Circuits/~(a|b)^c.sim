@@ -1,0 +1,57 @@
+p a vdd na 2 4
+n a na gnd 2 4
+
+p b vdd nb 2 4
+n b nb gnd 2 4
+
+p c vdd nc 2 4
+n c nc gnd 2 4
+
+p a vdd n1 2 4
+p c vdd n1 2 4
+n a n1 n0 2 4
+n c n0 gnd 2 4
+
+p n1 vdd n2 2 4
+n n1 gnd n2 2 4
+
+p b vdd n4 2 4
+p c vdd n4 2 4
+n b n4 n3 2 4
+n c n3 gnd 2 4
+
+p n4 vdd n5 2 4
+n n4 gnd n5 2 4
+
+p na vdd n7 2 4
+p nb vdd n7 2 4
+n na n7 n6 2 4
+n nb n6 gnd 2 4
+
+p n7 vdd n8 2 4
+n n7 gnd n8 2 4
+
+p n8 vdd n10 2 4
+p nc vdd n10 2 4
+n n8 n10 n9 2 4
+n nc n9 gnd 2 4
+
+p n10 vdd n11 2 4
+n n10 gnd n11 2 4
+
+p n2 vdd n12 2 4
+p n5 n12 n13 2 4
+n n2 n13 gnd 2 4
+n n5 n13 gnd 2 4
+
+p n13 vdd n14 2 4
+n n13 gnd n14 2 4
+
+p n14 vdd n15 2 4
+p n11 n15 n16 2 4
+n n14 n16 gnd 2 4
+n n11 n16 gnd 2 4
+
+p n16 vdd y 2 4
+n n16 gnd y 2 4
+
