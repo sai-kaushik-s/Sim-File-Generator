@@ -1,0 +1,14 @@
+p a vdd na 2 4
+n a na gnd 2 4
+
+p b vdd nb 2 4
+n b nb gnd 2 4
+
+p na vdd n1 2 4
+p nb vdd n1 2 4
+n na n1 n0 2 4
+n nb n0 gnd 2 4
+
+p n1 vdd y 2 4
+n n1 gnd y 2 4
+

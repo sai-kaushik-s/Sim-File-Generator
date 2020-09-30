@@ -25,7 +25,7 @@ def helpInput():
     os.chdir("Circuits")
     wireCount = 0
     print("\033[0;31m\nThe simplified expression: y = %s" % minExpr)
-    print("\033[0;32m\nThe satisfiable values are (X indicates that the variable can hold either 0 ot 1): \033[0;33m")
+    print("\033[0;32m\nThe satisfiable values are (X indicates that the variable can hold either 0 or 1): \033[0;33m")
     helpSolutions(minExpr)
     return minExpr, fileName, wireCount
 
