@@ -25,8 +25,7 @@ def helpInput():
     os.chdir("Circuits")
     wireCount = 0
     print("\033[0;31m\nThe simplified expression: y = %s" % minExpr)
-    print("\033[0;35m\nThe .sim file is saved as '%s' in the directory 'Circuits/'" % fileName)
-    print("\033[0;32m\nThe satisfiable values are: \033[0;33m")
+    print("\033[0;32m\nThe satisfiable values are (X indicates that the variable can hold either 0 ot 1): \033[0;33m")
     helpSolutions(minExpr)
     return minExpr, fileName, wireCount
 
@@ -121,40 +120,58 @@ def helpFindAB(expr, it, inc):
     temp = it - 1
     a1 = ""
     count = 0
-    while temp > -1:
-        if expr[temp] == ")":
-            count += 1
-        if expr[temp] == "(":
-            count -= 1
-            if count <= 0:
+    if expr[temp] == ")":
+        count += 1
+        a1 = ")" + a1
+        while count != 0:
+            temp -= 1
+            if temp < 0:
                 break
-        if count == 0:
-            if expr[temp] == "^" or expr[temp] == "&" or expr[temp] == "|":
+            if expr[temp] == ")":
+                count += 1
+            if expr[temp] == "(":
+                count -= 1
+            a1 = expr[temp] + a1
+        if temp != 0:
+            if expr[temp - 1] == "~":
+                a1 = "~" + a1
+    else:
+        while True:
+            if expr[temp] == "^" or expr[temp] == "&" or expr[temp] == "|" or expr[temp] == "(":
                 break
-        a1 = expr[temp] + a1
-        temp -= 1
-    if a1.find(")") != -1:
-        a1 = "(" + a1
+            a1 = expr[temp] + a1
+            temp -= 1
+            if temp < 0:
+                break
     temp = it + inc
     b1 = ""
     count = 0
-    while temp < len(expr):
-        if expr[temp] == "(":
-            count += 1
-        if expr[temp] == ")":
-            count -= 1
-            if count <= 0:
-                break
-        if expr[temp] == "~":
-            if expr[temp + 1] == "^" or expr[temp + 1] == "&" or expr[temp + 1] == "|" or expr[temp + 1] == ")":
-                break
-        if count == 0:
-            if expr[temp] == "^" or expr[temp] == "&" or expr[temp] == "|":
-                break
-        b1 = b1 + expr[temp]
+    if expr[temp] == "~":
+        b1 = b1 + "~"
         temp += 1
-    if b1.find("(") != -1:
-        b1 = b1 + ")"
+    if expr[temp] == "(":
+        count += 1
+        b1 = b1 + expr[temp]
+        while count != 0:
+            temp += 1
+            if temp >= len(expr):
+                break
+            if expr[temp] == "(":
+                count += 1
+            if expr[temp] == ")":
+                count -= 1
+            b1 = b1 + expr[temp]
+    else:
+        while True:
+            if expr[temp] == "^" or expr[temp] == "&" or expr[temp] == "|" or expr[temp] == ")":
+                break
+            if expr[temp] == "~":
+                if expr[temp + 1] == "^" or expr[temp + 1] == "&" or expr[temp + 1] == "|" or expr[temp + 1] == ")":
+                    break
+            b1 = b1 + expr[temp]
+            temp += 1
+            if temp >= len(expr):
+                break
     return a1, b1
 
 
@@ -214,3 +231,4 @@ def helpRename(fileName, expr):
     fileData = fileData.replace(expr, "y")
     with open(fileName, "w") as fp:
         fp.write(fileData)
+    print("\033[0;35m\nThe .sim file is saved as '%s' in the directory 'Circuits/'" % fileName)
