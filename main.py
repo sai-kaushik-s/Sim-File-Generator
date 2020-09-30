@@ -10,7 +10,9 @@ from simplify import *
 #
 
 
+# Main driver function
 if __name__ == '__main__':
+    # Gets the minimized expression
     minExpr, fileName, wireCount = helpInput()
 
     fp = open(fileName, "w")

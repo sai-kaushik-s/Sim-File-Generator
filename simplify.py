@@ -45,12 +45,16 @@ def simplifyFun(expr, symbol, wc, fp):
                 break
             a1 = expr[temp] + a1
             temp -= 1
+            if temp < 0:
+                break
         temp = it + 1
         while True:
             if expr[temp] == ")" or expr[temp] == symbol:
                 break
             b1 = b1 + expr[temp]
             temp += 1
+            if temp >= len(expr):
+                break
         wr = ""
         if symbol == "&":
             wr = andGate(a1, b1, wc)
