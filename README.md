@@ -1,5 +1,6 @@
 # .sim File Generator
 A python program that generates a .sim file from a input boolean expression. 
+
 **Gates identified by the program**
  - NOT Gate: ~
  - AND Gate: &
